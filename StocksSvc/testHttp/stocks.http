@@ -1,0 +1,45 @@
+### 음료 가용성 조회 (GET)
+GET http://localhost:8082/stocks?drinkId=1234&orderSize=tall
+
+### 음료 가용성 조회 (GET) - 다른 조합
+GET http://localhost:8082/stocks?drinkId=5678&orderSize=grande
+
+### 음료 가용성 조회 (GET) - 존재하지 않는 조합
+GET http://localhost:8082/stocks?drinkId=9999&orderSize=small
+
+### 음료 가용성 upsert (POST) - 새 데이터 생성
+POST http://localhost:8082/stocks
+Content-Type: application/json
+
+{
+  "drinkId": "1111",
+  "orderSize": "tall",
+  "drinkAvailability": true
+}
+
+### 음료 가용성 upsert (POST) - 기존 데이터 업데이트
+POST http://localhost:8082/stocks
+Content-Type: application/json
+
+{
+  "drinkId": "1234",
+  "orderSize": "tall",
+  "drinkAvailability": false
+}
+
+### 음료 가용성 upsert (POST) - 다른 조합
+POST http://localhost:8082/stocks
+Content-Type: application/json
+
+{
+  "drinkId": "8888",
+  "orderSize": "venti",
+  "drinkAvailability": true
+}
+
+### 응답 확인
+# GET 요청 예상 응답:
+# {"drinkAvailability": true} 또는 {"drinkAvailability": false}
+
+# POST 요청 예상 응답:
+# {"drinkAvailability": true} 또는 {"drinkAvailability": false}

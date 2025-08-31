@@ -1,0 +1,41 @@
+{
+  "server": {
+    "port": 8080,
+    "servlet": {
+      "context-path": "/api"
+    }
+  },
+  "spring": {
+    "application": {
+      "name": "demo-application"
+    },
+    "profiles": {
+      "active": "dev"
+    },
+    "jackson": {
+      "default-property-inclusion": "non_null",
+      "serialization": {
+        "write-dates-as-timestamps": false
+      }
+    }
+  },
+  "logging": {
+    "level": {
+      "com.example.demo": "DEBUG",
+      "org.springframework.web": "INFO"
+    },
+    "pattern": {
+      "console": "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    }
+  },
+  "custom": {
+    "stock": {
+      "default-drink-id": "1000",
+      "default-order-size": "medium"
+    },
+    "payment": {
+      "timeout-seconds": 30,
+      "retry-count": 3
+    }
+  }
+}

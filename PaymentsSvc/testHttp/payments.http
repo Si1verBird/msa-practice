@@ -1,0 +1,9 @@
+### Step 3: DTO 기반 결제 요청
+POST http://localhost:8081/payments
+Content-Type: application/json
+
+{
+  "orderId": "ORDER123",
+  "amount": 39000,
+  "paymentMethod": "CARD"
+}
