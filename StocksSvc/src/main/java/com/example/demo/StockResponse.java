@@ -1,15 +1,15 @@
 package com.example.demo;
 
 // 서버가 클라이언트에게 응답으로 주는 데이터 구조
-public class StocksResponse {
+public class StockResponse {
 
     private boolean drinkAvailability;
 
     // 기본 생성자
-    public StocksResponse() {}
+    public StockResponse() {}
 
     //생성자를 통해 응답 데이터를 초기화
-    public StocksResponse(boolean drinkAvailability) {
+    public StockResponse(boolean drinkAvailability) {
         this.drinkAvailability = drinkAvailability;
     }
 

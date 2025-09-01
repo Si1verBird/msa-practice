@@ -15,7 +15,7 @@ public class PaymentController {
 
     // POST /payments 요청을 처리
     @PostMapping("/payments")
-    public StocksResponse createPayment(@RequestBody StocksRequest request) {
+    public PaymentResponse createPayment(@RequestBody PaymentRequest request) {
         // 실제 동작은 서비스에 위임
         return paymentService.process(request);
     }

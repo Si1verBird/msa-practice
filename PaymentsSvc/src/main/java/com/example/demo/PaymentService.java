@@ -15,11 +15,11 @@ public class PaymentService {
 
     // 결제 요청을 실제로 저장하고, 저장된 결과를 응답으로 반환
     @Transactional
-    public StocksResponse process(StocksRequest request) {
+    public PaymentResponse process(PaymentRequest request) {
 
         // 요청을 기반으로 PaymentEntity 생성 후 DB에 저장
-        StocksEntity saved = repository.save(
-            new StocksEntity(
+        PaymentEntity saved = repository.save(
+            new PaymentEntity(
                 request.getOrderId(),
                 request.getAmount(),
                 request.getPaymentMethod(),
@@ -28,6 +28,6 @@ public class PaymentService {
         );
 
         // 저장된 Entity의 ID 값을 이용해 응답 구성
-        return new StocksResponse("PAY-" + saved.getId(), saved.getStatus());
+        return new PaymentResponse("PAY-" + saved.getId(), saved.getStatus());
     }
 }

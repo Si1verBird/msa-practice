@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity  // 이 클래스는 DB 테이블로 변환됨
 @Table(name = "stocks")  // 테이블 이름 지정
-public class StocksEntity {
+public class StockEntity {
 
     @Id  // 기본 키 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // ID 자동 생성 (auto increment)
@@ -14,10 +14,10 @@ public class StocksEntity {
     private String orderSize;
     private boolean drinkAvailability;
 
-    public StocksEntity() {}  // JPA용 기본 생성자
+    public StockEntity() {}  // JPA용 기본 생성자
 
     // 실제 저장할 필드를 받는 생성자
-    public StocksEntity(String drinkId, String orderSize, boolean drinkAvailability) {
+    public StockEntity(String drinkId, String orderSize, boolean drinkAvailability) {
         this.drinkId = drinkId;
         this.orderSize = orderSize;
         this.drinkAvailability = drinkAvailability;

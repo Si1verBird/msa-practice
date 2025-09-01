@@ -12,11 +12,14 @@ public class StockController {
     private StockService stockService; // 추가: 필드 선언
     
     @GetMapping("/stocks")
-    public boolean getStocks(
+    public StockResponse getStocks(
         @RequestParam String drinkID,
         @RequestParam String orderSize
     ){
         // drinkID와 orderSize에 따라 drinkAvailability 결정
-        return stockService.checkDrinkAvailability(drinkID, orderSize);
+        StockRequest request = new StockRequest();
+        request.setDrinkId(drinkID);
+        request.setOrderSize(orderSize);
+        return stockService.checkDrinkAvailability(request);
     }
 }
